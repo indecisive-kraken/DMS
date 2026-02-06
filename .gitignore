@@ -42,5 +42,7 @@ out/
 full_app_setup.psl
 full_app_setup.sh
 docker-compose.yml
-.dockerfile
+Dockerfile
 logback-spring.xml
+
+/static/js
