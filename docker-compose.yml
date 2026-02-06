@@ -1,0 +1,28 @@
+version: "29"
+
+# (this docker-compose.yml file is not intended for production, the best thing to use is kubernetes vaults)
+services:
+  backend:
+    build: 
+      context: ./dms
+      dockerfile: Dockerfile
+    ports: "8080:8080"
+    volumes: 
+      - ./backend:/src
+    env_file: ./dms/.env
+    depends_on:
+      - db
+     
+  db:
+    image: mysql:latest
+    restart: always
+    env_file: ./dms/.env
+    environment:
+      MYSQL_DATABASE: {MY_SQL_DATABASE}
+      MYSQL_USER: {MY_SQL_USER}
+      MYSQL_PASSWORD: {MY_SQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: {MY_SQL_ROOT_PASSWORD}
+      context:
+    ports: "3306:3306"
+
+  

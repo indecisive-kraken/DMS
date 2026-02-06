@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security6" lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="table-responsive small" th:fragment="tasks-table-fragment">
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th scope="col">NoteTitle</th>
+            <th scope="col">Preview</th>
+            <th scope="col">Client</th>
+            <th scope="col">InDue</th>
+            <th scope="col">Status</th>
+            <th scope="col">Edit<th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${tasksPage.content}">
+            <td th:text="${task.noteTitle}"></td>
+            <td th:text="${task.description}"></td>
+            <td th:text="${task.clientName}"></td>
+            <td th:text="${task.inDue}"></td>
+            <td th:text="${task.status}"></td>
+            <td sec:authorize="hasAuthority('EDITS_TASKS')">
+                <a th:href="@{/tasks/dashboard/edit/{uuid}(uuid=${task.uuid})}"
+                   class="btn btn-sm btn-outline-primary">Edit</a>
+                <a th:href="@{/tasks/dashboard/delete/{uuid}(uuid=${task.uuid})}"
+                   class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this task?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
