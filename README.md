@@ -40,7 +40,6 @@
 ##  Key Features
 
 - Java-based backend & MySQL Database with the UI powered by the Thymeleaf Engine for the UI, avoiding the need for multiple engines to be used (React/Angular Stack + Backend).
-- Dockerized app and automatic deployment via running the provided scripts.
 
 ## Notes 
 
