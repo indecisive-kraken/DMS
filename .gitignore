@@ -45,4 +45,5 @@ docker-compose.yml
 Dockerfile
 logback-spring.xml
 .env
-/static/js
+
+src/main/resources/static/js
