@@ -35,6 +35,7 @@
    - ./gradlew bootRun (for Windows and Unix it works) OR java -jar ./build/libs/dmsapp.jar
      (The build appears in the same directory as the project)
 
+- To connect to the database you can use the provided .env 
      
 ##  Key Features
 
