@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+
+</head>
+
+<body>
+
+<!-- Parent-level fragment -->
+<div th:fragment="tasks-edit-fields-fragment">
+
+    <div class="container mt-4">
+
+        <h2>Edit Task</h2>
+
+        <div th:if="${errorMessage}" class="alert alert-danger">
+            <p th:text="${errorMessage}"></p>
+        </div>
+
+        <form th:action="@{/tasks/dashboard/edit}"
+              th:object="${taskEditDTO}"
+              method="POST">
+
+            <!-- Hidden identifiers -->
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{uuid}">
+
+            <!-- Note title -->
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-control" th:field="*{noteTitle}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('noteTitle')}"
+                     th:errors="*{noteTitle}"></div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea class="form-control" rows="4" th:field="*{description}"></textarea>
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('description')}"
+                     th:errors="*{description}"></div>
+            </div>
+
+            <!-- Client select -->
+            <div class="mb-3">
+                <label class="form-label">Client</label>
+                <select class="form-select" th:field="*{cid}">
+                    <option value="">Select Client</option>
+                    <option th:each="client : ${clients}"
+                            th:value="${client.id}"
+                            th:text="${client.companyName}">
+                    </option>
+                </select>
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('cid')}"
+                     th:errors="*{cid}"></div>
+            </div>
+
+            <!-- Due date -->
+            <div class="mb-3">
+                <label class="form-label">Due Date</label>
+                <input type="datetime-local"
+                       class="form-control"
+                       th:field="*{inDue}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a th:href="@{/tasks/dashboard}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
