@@ -22,7 +22,7 @@
 
 ### Tested on: 
 
-- Windows 11 24.2
+- Windows 11
 - Fedora Workstation 43 
 
 ## 🚀 Deployment
