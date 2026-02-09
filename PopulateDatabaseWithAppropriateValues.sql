@@ -1,3 +1,13 @@
+create database if not exists dmsdatabasefinal;
+create user if not exists springuser;
+alter user 'springuser' identified by "12345";
+flush privileges;
+use dmsdatabasefinal;
+GRANT ALL ON springteacher7dbtest.* TO 'springuser';
+show databases;
+set default_storage_engine = INNODB;
+
+
 insert into capabilities values
 (1, "EDIT_TASKS", "edits_tasks"),
 (2, "EDIT_CLIENTS", "edits_clients"),
@@ -11,7 +21,7 @@ insert into roles values
 -- change as you desire
 
 insert into roles_capabilities values
-(1, 1);
+(1, 1),
 (2, 1),
 (2, 2),
 (3,1),

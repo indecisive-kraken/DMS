@@ -34,7 +34,7 @@ public class Mapper {
     }
 
     public ClientEditDTO mapToClientEditDTO(Client client) {
-        return new ClientEditDTO(client.getCompanyName(),client.getId(), client.getCid(),
+        return new ClientEditDTO(client.getCompanyName(), client.getId(), client.getCid(),
                 client.getContactPerson(),
                 client.getVatNumber(), client.getRegistrationNumber(),
                 client.getEmail(), client.getPhone(), client.getWebsite(),

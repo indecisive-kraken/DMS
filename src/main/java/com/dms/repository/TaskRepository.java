@@ -21,6 +21,6 @@ public interface TaskRepository
     @Query("SELECT count(t) FROM Task t WHERE t.uuid = ?1")
     long getCount(String uuid);
 
-    Optional<Object> findByNoteTitle(@NotNull @Size(min = 120) String noteTitle);
-
+    Optional<Object> findByNoteTitle(@NotNull @Size(min = 1) String noteTitle);
+    Optional<Task> findByDescription(String description);
 }

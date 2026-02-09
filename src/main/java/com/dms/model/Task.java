@@ -38,7 +38,8 @@ public class Task extends AbstractEntity {
 
     //mappedBy = "client",
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cid")
+    @JoinColumn(name = "client_id")  //ChatGPT suggestion maybe a JoinTable is better and safer
+
     private Client client;
 
     @Column

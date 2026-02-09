@@ -21,7 +21,7 @@ public class ClientInsertValidator implements Validator {
     private final ClientRepository clientRepository;
 
     @Override
-    public boolean supports(@NonNull Class<?> clazz) { return TaskInsertDTO.class == clazz; }
+    public boolean supports(@NonNull Class<?> clazz) { return ClientInsertDTO.class == clazz; }
 
     @Override
     public void validate(@NotNull Object target, @NotNull Errors errors) {

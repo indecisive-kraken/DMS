@@ -22,11 +22,11 @@ public class TaskEditDTO {
     private String uuid;
 
     @NotNull
-    @Size(min = 120)
+    @Size(min = 1)
     private String noteTitle;
 
     @NotNull
-    @Size(min = 2)
+    @Size(min = 1)
     private String description;
 
     @NotNull

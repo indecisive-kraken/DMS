@@ -14,12 +14,12 @@ import java.util.Iterator;
 import java.util.List;
 
 @Controller
-@RequestMapping("/ai-links")
+@RequestMapping("/ai_links")
 @RequiredArgsConstructor
 @Slf4j
 public class AIHelpController {
 
-    @GetMapping("/ai-list")
+    @GetMapping("/ai_list")
     public String populateList(@Valid Model model) {
 
         List<String> options = new ArrayList<String>();

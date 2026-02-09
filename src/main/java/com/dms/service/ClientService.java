@@ -73,7 +73,7 @@ public class ClientService implements IClientService{
                 if (clientRepository.findByCid(cdto.getCid()).isEmpty()) {
                     client.setCid(cdto.getCid());
                 }
-            } else throw new EntityAlreadyExistsException("Client", "Client with vat " + cdto.getCid() + " already exists");
+            }
 
             client.setCompanyName(cdto.getCompanyName());
             client.setCity(cdto.getCity());
@@ -109,9 +109,9 @@ public class ClientService implements IClientService{
         } catch (EntityNotFoundException e) {
             log.error("Update failed for client with name={}. Entity not found.", cdto.getCompanyName(), e);
             throw e;
-        } catch (EntityAlreadyExistsException e) {
-            log.error("Update failed for client with vat={}. Entity already exists.", cdto.getCompanyName(), e);
-            throw e;
+//        } catch (EntityAlreadyExistsException e) {
+//            log.error("Update failed for client with vat={}. Entity already exists.", cdto.getCompanyName(), e);
+//            throw e;
         }
     }
 

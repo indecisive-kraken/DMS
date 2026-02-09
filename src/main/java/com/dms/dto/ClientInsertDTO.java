@@ -31,7 +31,7 @@ public class ClientInsertDTO {
     //Have seen it with my own eyes, in foreign countries finding a registration number is difficult or time-consuming (ESPECIALLY CYPRUS), so it can be null until you find it
     private String registrationNumber;
     @NotNull(message = "email is required")
-    @Pattern(regexp = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$", message = "Invalid email")
+//    @Pattern(regexp = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$", message = "Invalid email")
     private String email;
 
     /* ================= Optional can be null details ================= */
@@ -40,7 +40,7 @@ public class ClientInsertDTO {
     @Size(min=1, max=10)
     private String phone;
 
-    @Pattern(regexp="^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$", message = "Invalid URL")
+//    @Pattern(regexp="^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$", message = "Invalid URL")
     private String website;
 
     /* ================= Address ================= */
@@ -56,6 +56,5 @@ public class ClientInsertDTO {
     private String industry;
     private String billingCurrency;
 
-    private Set<Task> tasks;
 
 }

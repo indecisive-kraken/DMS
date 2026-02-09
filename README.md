@@ -18,7 +18,12 @@
 - Memory: Recommended 4GB or more
 - Storage: At least 500MB available space
 
- 
+## Important Notes (READ ME)
+
+- Currently, this app to work needs a specific workflow because Tasks are related to Clients so you have to insert a Client at first.
+- As a precaution: also, currently it does not test the edge cases where a client with a linked task gets deleted. 
+  This behaviour can lead to Null Pointer Exceptions, crashes and in a future addition will change the relationship (JoinColumns -> JoinTable)
+
 
 ### Tested on: 
 

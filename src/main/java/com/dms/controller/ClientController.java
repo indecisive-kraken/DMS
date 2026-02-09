@@ -46,12 +46,14 @@ public class ClientController {
 
     @PostMapping("/insert")
     public String saveClient(@Valid @ModelAttribute("clientInsertDTO") ClientInsertDTO clientInsertDTO,
-                             BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) throws EntityAlreadyExistsException, EntityNotFoundException {
+                             BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) throws EntityAlreadyExistsException, EntityNotFoundException, EntityInvalidArgumentException {
         Client savedClient;
 
         clientInsertValidator.validate(clientInsertDTO, bindingResult);
         if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.toString());
             return "client-form";
+
         }
 
         try {

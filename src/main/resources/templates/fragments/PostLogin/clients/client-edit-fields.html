@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
 
 <head>
@@ -43,90 +43,135 @@
             <div class="mb-3">
                 <label class="form-label">Contact Person</label>
                 <input type="text" class="form-control" th:field="*{contactPerson}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('contactPerson')}"
+                     th:errors="*{contactPerson}"></div>
             </div>
 
             <!-- VAT Number -->
             <div class="mb-3">
                 <label class="form-label">VAT Number</label>
                 <input type="text" class="form-control" th:field="*{vatNumber}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('vatNumber')}"
+                     th:errors="*{vatNumber}"></div>
             </div>
 
             <!-- Registration Number -->
             <div class="mb-3">
                 <label class="form-label">Registration Number</label>
                 <input type="text" class="form-control" th:field="*{registrationNumber}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('registrationNumber')}"
+                     th:errors="*{registrationNumber}"></div>
             </div>
 
             <!-- Email -->
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <input type="email" class="form-control" th:field="*{email}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('email')}"
+                     th:errors="*{email}"></div>
             </div>
 
             <!-- Phone -->
             <div class="mb-3">
                 <label class="form-label">Phone</label>
                 <input type="text" class="form-control" th:field="*{phone}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('phone')}"
+                     th:errors="*{phone}"></div>
             </div>
 
             <!-- Website -->
             <div class="mb-3">
                 <label class="form-label">Website</label>
                 <input type="text" class="form-control" th:field="*{website}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('website')}"
+                     th:errors="*{website}"></div>
             </div>
 
             <!-- Address Line 1 -->
             <div class="mb-3">
                 <label class="form-label">Address Line 1</label>
                 <input type="text" class="form-control" th:field="*{addressLine1}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('addressLine1')}"
+                     th:errors="*{addressLine1}"></div>
             </div>
 
             <!-- Address Line 2 -->
             <div class="mb-3">
                 <label class="form-label">Address Line 2</label>
                 <input type="text" class="form-control" th:field="*{addressLine2}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('addressLine2')}"
+                     th:errors="*{addressLine2}"></div>
             </div>
 
             <!-- City -->
             <div class="mb-3">
                 <label class="form-label">City</label>
                 <input type="text" class="form-control" th:field="*{city}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('city')}"
+                     th:errors="*{city}"></div>
             </div>
 
             <!-- State / Province -->
             <div class="mb-3">
                 <label class="form-label">State / Province</label>
                 <input type="text" class="form-control" th:field="*{stateProvince}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('stateProvince')}"
+                     th:errors="*{stateProvince}"></div>
             </div>
 
             <!-- Postal Code -->
             <div class="mb-3">
                 <label class="form-label">Postal Code</label>
                 <input type="text" class="form-control" th:field="*{postalCode}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('postalCode')}"
+                     th:errors="*{postalCode}"></div>
             </div>
 
             <!-- Country -->
             <div class="mb-3">
                 <label class="form-label">Country</label>
                 <input type="text" class="form-control" th:field="*{country}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('country')}"
+                     th:errors="*{country}"></div>
             </div>
 
             <!-- Country Region -->
             <div class="mb-3">
                 <label class="form-label">Country Region</label>
                 <input type="text" class="form-control" th:field="*{countryRegion}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('countryRegion')}"
+                     th:errors="*{countryRegion}"></div>
             </div>
 
             <!-- Industry -->
             <div class="mb-3">
                 <label class="form-label">Industry</label>
                 <input type="text" class="form-control" th:field="*{industry}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('industry')}"
+                     th:errors="*{industry}"></div>
             </div>
 
             <!-- Billing Currency -->
             <div class="mb-3">
                 <label class="form-label">Billing Currency</label>
                 <input type="text" class="form-control" th:field="*{billingCurrency}">
+                <div class="text-danger"
+                     th:if="${#fields.hasErrors('billingCurrency')}"
+                     th:errors="*{billingCurrency}"></div>
             </div>
 
             <button type="submit" class="btn btn-primary">Save</button>

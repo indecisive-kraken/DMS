@@ -76,30 +76,35 @@ public class TaskService implements ITaskService {
             Task task = taskRepository.findByUuid(dto.getUuid())
                     .orElseThrow(() -> new EntityNotFoundException("task", "task not found"));
 
+            if (!task.getDescription().equals(dto.getDescription())) {
+                if (taskRepository.findByDescription(dto.getDescription()).isEmpty()) {
+                    task.setDescription(dto.getDescription());
+                } else
+                    throw new EntityAlreadyExistsException("Task", "Task with description" + dto.getDescription() + "..." + " already exists"); //I need to trim this will do later
+            }
+
             task.setNoteTitle(dto.getNoteTitle());
             task.setDescription(dto.getDescription());
             task.checkIfTaskIsOverdue(task);
 
-            if (!Objects.equals(task.getClient().getCid(), dto.getNoteTitle())) {
-                Client client = clientRepository.findByCid(dto.getCompanyName())
-                        .orElseThrow(() -> new EntityInvalidArgumentException("Client", "Invalid client id"));
-                Client currentClient = task.getClient();
-                if (currentClient != null) {
-                    currentClient.removetask(task);
-                }
+//            if (!Objects.equals(task.getClient().getId(), dto.getNoteTitle())) {
+//
+//                Client client = clientRepository.findById(dto.getId())
+//                        .orElseThrow(() -> new EntityInvalidArgumentException("Client", "Invalid client id"));
+//
+//                Client currentClient = task.getClient();
+//                if (currentClient != null) {
+//                    currentClient.removetask(task);
+//                }
 //                client.addtask(task);
-            }
+//            }
             taskRepository.save(task);
             log.info("task with id={} updated.", dto.getUuid());
         } catch (EntityNotFoundException e) {
             log.error("Update failed for task with vat={}. Entity not found.", dto.getUuid(), e);
             throw e;
-        } catch (EntityInvalidArgumentException e) {
-            log.error("Update failed for task with name={}. Client not found with id={}.", dto.getUuid(), dto.getCompanyName(), e);
-            throw e;
         }
     }
-
 
     @Override
     @Transactional(rollbackOn = Exception.class)
