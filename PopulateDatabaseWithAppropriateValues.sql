@@ -3,7 +3,7 @@ create user if not exists springuser;
 alter user 'springuser' identified by "12345";
 flush privileges;
 use dmsdatabasefinal;
-GRANT ALL ON springteacher7dbtest.* TO 'springuser';
+grant all on dmsdatabasefinal.* to 'springuser';
 show databases;
 set default_storage_engine = INNODB;
 
