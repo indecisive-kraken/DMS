@@ -23,7 +23,7 @@
 - Currently, this app to work needs a specific workflow because Tasks are related to Clients so you have to insert a Client at first.
 - As a precaution: also, currently it does not test the edge cases where a client with a linked task gets deleted. 
   This behaviour can lead to Null Pointer Exceptions, crashes and in a future addition will change the relationship (JoinColumns -> JoinTable)
-
+- The users table as of right now shows memory addresses, this needs to be addressed!
 
 ### Tested on: 
 
